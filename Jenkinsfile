@@ -10,7 +10,7 @@ pipeline {
 				}
 			}
 		}
-		stage(clean){
+		stage('install'){
 			steps{
 			
 				withMaven(maven: 'Maven'){
