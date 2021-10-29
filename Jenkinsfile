@@ -30,9 +30,9 @@ pipeline{
             sh "scp -o StrictHostKeyChecking=no docker-k8s-demo.yaml ec2-user@ec2-18-118-1-238.us-east-2.compute.amazonaws.com:/home/ec2-user"
             script {
                 try{
-                    sh "ssh ec2-user@ec2-18-118-1-238.us-east-2.compute.amazonaws.com:/home/ec2-user kubectl apply -f ."
+                    sh "ssh ec2-user@ec2-18-118-1-238.us-east-2.compute.amazonaws.com kubectl apply -f ."
                 }catch(error){
-                    sh "ssh ec2-user@ec2-18-118-1-238.us-east-2.compute.amazonaws.com:/home/ec2-user kubectl create -f ."
+                    sh "ssh ec2-user@ec2-18-118-1-238.us-east-2.compute.amazonaws.com kubectl create -f ."
             }
 }
         }
