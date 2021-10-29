@@ -9,7 +9,7 @@ pipeline{
         stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t gjaseka/docker-demo:latest .'
+                  sh 'sudo docker build -t gjaseka/docker-demo:latest .'
                 }
             }
         }
@@ -17,9 +17,9 @@ pipeline{
             steps {
                 script {
                 withCredentials([string(credentialsId: 'gjaseka', variable: 'dockerhub_pwd')]) {
- 			   		sh 'docker login -u gjaseka -p ${dockerhub_pwd}'
+ 			   		sh 'sudo docker login -u gjaseka -p ${dockerhub_pwd}'
 				}
-                 sh 'docker push gjaseka/docker-demo:latest'
+                 sh 'sudo docker push gjaseka/docker-demo:latest'
                 }
             }
         }
