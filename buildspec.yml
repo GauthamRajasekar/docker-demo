@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+   pre-build:
+      commands:
+      - echo "Entered pre-build phase"
+   build:
+      commands:
+      - echo "Entered build phase"
+      - mvn clean install
+   post-build:
+      commands:
+      - echo "Entered build phase"
+      - mv target/docker-demo.jar docker-demo.jar
+artifacts:
+   files:
+      - docker-demo.jar
